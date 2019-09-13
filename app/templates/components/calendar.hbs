@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xl-10 to-do-calendar">
+    <PowerCalendar 
+      @selected={{selected}}
+      @center={{center}} 
+      @onSelect={{action (mut selected) value="date"}}
+      @onCenterChange={{action (mut center) value="date"}}
+      as |calendar|>
+      <calendar.Nav/>
+      <calendar.Days as |day|>
+        {{day.number}}
+      </calendar.Days>
+    </PowerCalendar>
+  </div>
+  <div class="col-xl-2">
+      <TaskList @selected={{moment-format selected 'YYYY-MM-DD'}}></TaskList>
+  </div>
+</div>
+

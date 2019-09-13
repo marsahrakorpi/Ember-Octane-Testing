@@ -1,0 +1,25 @@
+@import "ember-power-calendar";
+
+.top-bar{
+    text-align: center;
+    letter-spacing: 2px;
+    font: 15px "Lato", sans-serif;
+    display: block
+}
+
+.ember-power-calendar-nav-title{
+    font: 15px "Lato", sans-serif;
+}
+
+.ember-power-calendar-weekdays{
+    max-height:100px;
+}
+
+.to-do-calendar{
+    @include ember-power-calendar($cell-size: 160px);
+}
+
+
+@import "ember-bootstrap/bootstrap";
+
+@import "ember-bootstrap/bootstrap";
