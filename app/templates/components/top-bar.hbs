@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row">
+        <BsButton @type="button" @class="btn btn-outline-primary" {{on 'click' this.openAddTaskModal}} >New Task</BsButton>
+    </div>
+</div>
+<br>
+{{#if this.showModal}}
+    <AddTaskModal taskAdded={{action 'taskAdded'}} @showModal={{@showModal}}></AddTaskModal>
+{{/if}}
