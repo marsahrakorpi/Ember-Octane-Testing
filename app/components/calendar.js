@@ -1,8 +1,10 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class Calendar extends Component {
-  @tracked selectedDay = this.selected;
+  @tracked selected;
+  @tracked selectedTasks = [];
 
   constructor(){
     super(...arguments)
@@ -11,4 +13,15 @@ export default class Calendar extends Component {
     this.selected = this.center
   }
 
+  @action
+  setSelection(selection){
+    this.selected = selection.date
+    this.setTasksForDate(selection.id)
+  }
+  setTasksForDate(date){
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || []
+    
+    tasks = tasks.filter(task => { return task.date === date})
+    this.selectedTasks = tasks;
+  }
 }

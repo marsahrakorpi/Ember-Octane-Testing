@@ -5,5 +5,5 @@
 </div>
 <br>
 {{#if this.showModal}}
-    <AddTaskModal taskAdded={{action 'taskAdded'}} @showModal={{@showModal}}></AddTaskModal>
+    <AddTaskModal closeModal={{action 'closeModal'}}></AddTaskModal>
 {{/if}}

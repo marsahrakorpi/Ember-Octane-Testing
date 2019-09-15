@@ -1,3 +1,4 @@
+{{yield}}
 <BsModal @onSubmit={{action "submit"}} as |Modal|>
   <Modal.header>
     <h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i> Alert</h4>
@@ -10,7 +11,7 @@
     <Input @id="taskname" @type="text" @placeholder="Task name" @value={{this.taskName}} />
   </Modal.body>
   <Modal.footer as |footer|>
-    <BsButton @onClick={{action close}} @type="danger">Cancel</BsButton>
+    <BsButton @onClick={{action 'close'}} @type="danger">Cancel</BsButton>
     <BsButton @onClick={{action Modal.submit}} @type="success">Create</BsButton>
   </Modal.footer>
 </BsModal>

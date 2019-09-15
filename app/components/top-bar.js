@@ -12,9 +12,10 @@ export default class AddTaskModal extends Component {
     }
 
     @action
-    taskAdded(){
-        console.log("task aded, top bar")
+    closeModal(){
+        this.showModal = false
     }
+
 }
 
 

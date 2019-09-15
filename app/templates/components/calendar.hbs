@@ -3,7 +3,7 @@
     <PowerCalendar 
       @selected={{selected}}
       @center={{center}} 
-      @onSelect={{action (mut selected) value="date"}}
+      @onSelect={{action setSelection}}
       @onCenterChange={{action (mut center) value="date"}}
       as |calendar|>
       <calendar.Nav/>
@@ -13,7 +13,8 @@
     </PowerCalendar>
   </div>
   <div class="col-xl-2">
-      <TaskList @selected={{moment-format selected 'YYYY-MM-DD'}}></TaskList>
+      {{log this.selectedTasks}}
+      <TaskList @selected={{moment-format selected 'YYYY-MM-DD'}} @tasks={{this.selectedTasks}}></TaskList>
   </div>
 </div>
 

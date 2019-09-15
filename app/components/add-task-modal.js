@@ -6,7 +6,11 @@ import moment from 'moment';
 export default class AddTaskModal extends Component {
     @tracked taskDate = null
     @tracked taskName = null
-    @tracked showModal = false
+    @tracked showModal;
+
+    constructor(){
+        super(...arguments)
+    }
     @action
     setTaskDate(date){
         this.taskDate = moment(date).format('YYYY-MM-DD')
@@ -17,7 +21,7 @@ export default class AddTaskModal extends Component {
     }
     @action 
     close(){
-        this.showModal = false
+        this.closeModal()
     }
     @action
     submit(){
@@ -25,9 +29,7 @@ export default class AddTaskModal extends Component {
         let tasks = JSON.parse(localStorage.getItem('tasks')) || []
         tasks.push(o)
         localStorage.setItem('tasks', JSON.stringify(tasks))
-        console.log(this.taskAdded)
-        console.log(this.taskAdded())
-        this.showModal=false
-        this.taskAdded()
+        this.closeModal()
+
     }
 }
